@@ -1,0 +1,387 @@
+// ==========================================
+// Smooth Scroll & Navigation
+// ==========================================
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Smooth scroll for navigation links
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ==========================================
+// Mobile Menu Toggle
+// ==========================================
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// ==========================================
+// Scroll Reveal Animations
+// ==========================================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+        }
+    });
+}, observerOptions);
+
+// Observe all elements with reveal classes
+const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+revealElements.forEach(el => observer.observe(el));
+
+// ==========================================
+// Animated Counters for Stats
+// ==========================================
+const statNumbers = document.querySelectorAll('.stat-number');
+
+const animateCounter = (element) => {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const step = target / (duration / 16); // 60fps
+    let current = 0;
+
+    const updateCounter = () => {
+        current += step;
+        if (current < target) {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    };
+
+    updateCounter();
+};
+
+// Create observer for stats
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumber = entry.target;
+            animateCounter(statNumber);
+            statsObserver.unobserve(statNumber);
+        }
+    });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(stat => statsObserver.observe(stat));
+
+// ==========================================
+// 3D Portfolio Carousel
+// ==========================================
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+const portfolioSection = document.querySelector('.portfolio');
+let currentIndex = 0;
+let carouselInterval;
+
+// Create navigation controls
+const createCarouselControls = () => {
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+
+    // Create prev/next buttons
+    const prevBtn = document.createElement('div');
+    prevBtn.className = 'carousel-nav prev-btn';
+    prevBtn.innerHTML = '‹';
+    prevBtn.setAttribute('aria-label', 'Previous project');
+
+    const nextBtn = document.createElement('div');
+    nextBtn.className = 'carousel-nav next-btn';
+    nextBtn.innerHTML = '›';
+    nextBtn.setAttribute('aria-label', 'Next project');
+
+    // Create indicators
+    const indicators = document.createElement('div');
+    indicators.className = 'carousel-indicators';
+
+    portfolioItems.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = 'carousel-indicator';
+        indicator.setAttribute('data-index', index);
+        indicators.appendChild(indicator);
+    });
+
+    portfolioGrid.appendChild(prevBtn);
+    portfolioGrid.appendChild(nextBtn);
+    portfolioGrid.appendChild(indicators);
+
+    return { prevBtn, nextBtn, indicators };
+};
+
+// Update carousel positions
+const updateCarousel = () => {
+    portfolioItems.forEach((item, index) => {
+        // Remove all position classes
+        item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+
+        const diff = index - currentIndex;
+        const total = portfolioItems.length;
+
+        // Handle wrapping for circular carousel
+        let normalizedDiff = diff;
+        if (diff > total / 2) normalizedDiff = diff - total;
+        if (diff < -total / 2) normalizedDiff = diff + total;
+
+        // Apply appropriate class based on position
+        if (normalizedDiff === 0) {
+            item.classList.add('active');
+        } else if (normalizedDiff === -1) {
+            item.classList.add('prev');
+        } else if (normalizedDiff === 1) {
+            item.classList.add('next');
+        } else if (normalizedDiff === -2 || (normalizedDiff < -1 && normalizedDiff !== -2)) {
+            item.classList.add('far-prev');
+        } else if (normalizedDiff === 2 || (normalizedDiff > 1 && normalizedDiff !== 2)) {
+            item.classList.add('far-next');
+        }
+    });
+
+    // Update indicators
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+    });
+};
+
+// Navigation functions
+const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % portfolioItems.length;
+    updateCarousel();
+    resetAutoPlay();
+};
+
+const prevSlide = () => {
+    currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+    updateCarousel();
+    resetAutoPlay();
+};
+
+const goToSlide = (index) => {
+    currentIndex = index;
+    updateCarousel();
+    resetAutoPlay();
+};
+
+// Auto-play functionality
+const startAutoPlay = () => {
+    carouselInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+};
+
+const stopAutoPlay = () => {
+    if (carouselInterval) {
+        clearInterval(carouselInterval);
+    }
+};
+
+const resetAutoPlay = () => {
+    stopAutoPlay();
+    startAutoPlay();
+};
+
+// Initialize carousel
+if (portfolioItems.length > 0) {
+    const controls = createCarouselControls();
+
+    // Set initial state
+    updateCarousel();
+
+    // Add event listeners
+    controls.prevBtn.addEventListener('click', prevSlide);
+    controls.nextBtn.addEventListener('click', nextSlide);
+
+    // Indicator click handlers
+    document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Click on side items to navigate
+    portfolioItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            if (!item.classList.contains('active')) {
+                goToSlide(index);
+            }
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Pause auto-play on hover
+    if (portfolioSection) {
+        portfolioSection.addEventListener('mouseenter', stopAutoPlay);
+        portfolioSection.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Start auto-play
+    startAutoPlay();
+}
+
+// View Project Button Actions
+const viewProjectButtons = document.querySelectorAll('.view-project');
+viewProjectButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Placeholder for project modal or navigation
+        console.log('View project clicked');
+    });
+});
+
+// ==========================================
+// Contact Form Handling
+// ==========================================
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get form data
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    // Here you would typically send the data to a server
+    console.log('Form submitted:', formData);
+
+    // Show success message (placeholder)
+    alert('Thank you for your message! I\'ll get back to you soon.');
+
+    // Reset form
+    contactForm.reset();
+});
+
+// ==========================================
+// Parallax Effect for Hero Background
+// ==========================================
+const heroBackground = document.querySelector('.hero-background');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * 0.5;
+
+    if (heroBackground) {
+        heroBackground.style.transform = `translateY(${rate}px)`;
+    }
+});
+
+// ==========================================
+// Cursor Trail Effect (Premium Touch)
+// ==========================================
+let cursorTrail = [];
+const trailLength = 10;
+
+document.addEventListener('mousemove', (e) => {
+    cursorTrail.push({
+        x: e.clientX,
+        y: e.clientY,
+        time: Date.now()
+    });
+
+    if (cursorTrail.length > trailLength) {
+        cursorTrail.shift();
+    }
+});
+
+// ==========================================
+// Active Section Highlighting in Nav
+// ==========================================
+const sections = document.querySelectorAll('section[id]');
+
+const highlightNavLink = () => {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+};
+
+window.addEventListener('scroll', highlightNavLink);
+
+// ==========================================
+// Smooth Page Load Animation
+// ==========================================
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// ==========================================
+// Add Hover Effects to Skill Cards
+// ==========================================
+const skillCards = document.querySelectorAll('.skill-card');
+
+skillCards.forEach(card => {
+    card.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// ==========================================
+// Tool Badge Animations
+// ==========================================
+const toolBadges = document.querySelectorAll('.tool-badge');
+
+toolBadges.forEach((badge, index) => {
+    badge.style.animationDelay = `${index * 0.1}s`;
+});
+
+// ==========================================
+// Dynamic Year in Footer
+// ==========================================
+const footerYear = document.querySelector('.footer p');
+if (footerYear) {
+    const currentYear = new Date().getFullYear();
+    footerYear.innerHTML = footerYear.innerHTML.replace('2025', currentYear);
+}

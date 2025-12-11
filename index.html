@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Martinez - Creative Graphic Designer</title>
+    <meta name="description"
+        content="Elena Martinez is a creative graphic designer specializing in brand identity, digital design, and visual storytelling. Explore my portfolio of stunning design work.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Portfolio</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="./bg.png">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting fade-in">Hello, I'm</p>
+                <h1 class="hero-name fade-in-delay-1">Ayaan <br> Shoaib</h1>
+                <p class="hero-title fade-in-delay-2">Creative Graphic Designer</p>
+                <p class="hero-description fade-in-delay-3">
+                    Crafting visual experiences that tell stories and elevate brands through
+                    stunning design and creative innovation.
+                </p>
+                <div class="hero-cta fade-in-delay-4">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-delay-2">
+                <div class="floating-card card-1"></div>
+                <div class="floating-card card-2"></div>
+                <div class="floating-card card-3"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image reveal-left">
+                    <div class="image-wrapper">
+                        <img src="./face.png" alt="Elena Martinez - Graphic Designer" class="profile-image">
+                    </div>
+                </div>
+                <div class="about-text reveal-right">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-description">
+                        I’m an emerging graphic designer who is actively building my skills through creating dummy
+                        logos, thumbnails, and other practice-based projects. Even though I’m at the beginning of my
+                        professional journey, I approach every design with intention, focusing on clarity, creativity,
+                        and strong visual impact.
+                    </p>
+                    <p class="about-description">
+                        I enjoy exploring branding, color theory, and layout design, and I consistently work on
+                        improving my ability to translate ideas into clean, meaningful visuals. My goal is to develop a
+                        portfolio that reflects both my growth and my dedication to thoughtful design.
+                    </p>
+                    <!-- <div class="about-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="150">0</h3>
+                            <p class="stat-label">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="80">0</h3>
+                            <p class="stat-label">Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="15">0</h3>
+                            <p class="stat-label">Awards Won</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certificate Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Certificates</h2>
+                <p class="section-subtitle">Professional Accomplishments</p>
+            </div>
+            <div class="certificates-grid">
+                <!-- Placeholder for Certificate Image -->
+                <div class="certificate-item reveal-up">
+                    <div class="certificate-image">
+                        <img src="./3.jpg" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Certificate of Graphic Design</h3>
+                        <p>JDC Free IT City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Logos</h2>
+                <p class="section-subtitle">A selection of my recent projects</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- <img src="./bg1.png" alt=""> -->
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./logo/smart1.png" alt="Zenith Coffee Brand" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Smart Windmill</h3>
+                                <p>Brand Identity </p>
+                                <button class="view-project" data-project-images="./logo/smart1.png, ./logo/smart2">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="digital">
+                    <div class="portfolio-image">
+                        <img src="./logo/floor1.png" alt="Creative Agency Website" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Floortel</h3>
+                                <p>Brand Identity</p>
+                                <button class="view-project"
+                                    data-project-images="./logo/floor1.png, ./logo/floor2.png">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="print">
+                    <div class="portfolio-image">
+                        <img src="./logo/flame1.png" alt="Urban Magazine Layout" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Flame Main</h3>
+                                <p>Brand Identity</p>
+                                <button class="view-project"
+                                    data-project-images="./logo/flame1.png, ./logo/flame2.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./logo/babbon1.png" alt="Tech Startup Branding" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Baboon</h3>
+                                <p>Brand Identity</p>
+                                <button class="view-project"
+                                    data-project-images="./logo/babbon1.png, ./logo/babbon2">View Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="digital">
+                    <div class="portfolio-image">
+                        <img src="./logo/bbg1.png" alt="Mobile App Interface" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Blue Beacon Global</h3>
+                                <p>Brand Identity</p>
+                                <button class="view-project" data-project-images="./logo/bbg1.png, ./logo/bbg2.png">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./logo/north1.png" alt="Luxury Fashion Campaign" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>North York</h3>
+                                <p>Brand Identity</p>
+                                <button class="view-project"
+                                    data-project-images="./logo/north1.png, ./logo/north2.png">View Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Work Section -->
+    <section id="more-work" class="portfolio">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Thumbnails</h2>
+                <p class="section-subtitle">Additional projects and experiments</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./New folder/Reacting 2.png" alt="Zenith Coffee Brand" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Funny Videos</h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="digital">
+                    <div class="portfolio-image">
+                        <img src="./New folder/FUNNY REACTION.png" alt="Creative Agency Website" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Reacting Videos</h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="print">
+                    <div class="portfolio-image">
+                        <img src="./New folder/Final2.png" alt="Urban Magazine Layout" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Documentary</h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./New folder/Top 10.png" alt="Tech Startup Branding" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Top Tech </h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="digital">
+                    <div class="portfolio-image">
+                        <img src="./New folder/Documentary 1.png" alt="Mobile App Interface" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Documentary</h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal-up" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="./New folder/Scary running.png" alt="Luxury Fashion Campaign" class="project-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Adventure</h3>
+                                <p>Thumbnails</p>
+                                <button class="view-project"
+                                    data-project-images="./New folder/Reacting 2.png, ./New folder/FUNNY REACTION.png , ./New folder/Final2.png , ./New folder/Top 10.png , ./New folder/Documentary 1.png , ./New folder/Scary running.png ">View
+                                    Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal-up">
+                    <div class="skill-icon skill1">.</div>
+                    <h3>Logo Design</h3>
+                    <p>I design clean, modern logos that create strong and memorable brand identities.</p>
+                </div>
+                <div class="skill-card reveal-up">
+                    <div class="skill-icon skill2">.</div>
+                    <h3 class="margin1">Thumbnail Design</h3>
+                    <p>I create bold and attention-grabbing thumbnails that boost clicks and engagement.</p>
+                </div>
+                <div class="skill-card reveal-up ">
+                    <div class="skill-icon skill3">.</div>
+                    <h3>Advertisement Design</h3>
+                    <p>I design impactful banner and social media ads that highlight key messages clearly.</p>
+                </div>
+                <div class="skill-card reveal-up">
+                    <div class="skill-icon skill4">.</div>
+                    <h3>Color Theory & Typography Basics</h3>
+                    <p>I use effective color palettes and font choices to improve clarity and visual appeal.</p>
+                </div>
+                <div class="skill-card reveal-up">
+                    <div class="skill-icon skill5">.</div>
+                    <h3>Layout & Composition</h3>
+                    <p>I organize design elements in clean, balanced layouts for a professional look.</p>
+                </div>
+                <div class="skill-card reveal-up">
+                    <div class="skill-icon skill6">.</div>
+                    <h3>Creative Concept Development</h3>
+                    <p>I turn ideas in creative visual concepts that match the project’s goals.</p>
+                </div>
+            </div>
+            <div class="tools-section reveal-up">
+                <h3 class="tools-title">Design Tools</h3>
+                <div class="tools-list">
+                    <div class="tool-badge">Adobe Photoshop</div>
+                    <div class="tool-badge">Adobe Illustrator</div>
+                    <div class="tool-badge">Figma</div>
+                    <div class="tool-badge">Adobe XD</div>
+                    <div class="tool-badge">Sketch</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text reveal-left">
+                    <h2 class="section-title">Let's Create Something Amazing</h2>
+                    <p class="contact-description">
+                        I'm always excited to collaborate on new projects and bring creative visions to life.
+                        Whether you have a clear idea or need help developing one, let's connect and explore
+                        the possibilities together.
+                    </p>
+                    <!-- <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder=" " required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form> -->
+                </div>
+                <div class="contact-info-wrapper reveal-right">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon"><img class="contactwh" src="./gmail.png" alt=""></span>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:ayaanshoaib519@gmail.com">ayaanshoaib519@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon "><img class="contacthw" src="./phone.png" alt=""></span>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+1234567890">+92 369240738</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                        <a href="#" class="social-link" aria-label="Behance">Behance</a>
+                        <a href="#" class="social-link" aria-label="Dribbble">Dribbble</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Elena Martinez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Preview Modal -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="" alt="Project Preview" class="modal-main-image">
+                    <button class="modal-nav modal-prev">‹</button>
+                    <button class="modal-nav modal-next">›</button>
+                </div>
+                <div class="modal-thumbnails">
+                    <!-- Thumbnails generated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

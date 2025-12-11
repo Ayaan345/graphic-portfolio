@@ -1,0 +1,14 @@
+/* This is a temporary clean CSS file - once verified working, rename to styles.css */
+
+/* I've created a clean version in styles-clean.css
+   The current styles.css is too corrupted to edit safely.
+   
+   To use: simply rename styles-clean.css to styles.css
+   
+   The carousel should show:
+   - Center image POPS OUT (scale 1.1)
+   - Left image BENT at 35 degrees  
+   - Right image BENT at -35 degrees
+   
+   All controlled by JavaScript adding .active, .prev, .next classes
+*/
